@@ -1,38 +1,360 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f3f5f5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+  width: 1200px;
+  display: flex;
+  align-items: flex-start;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrapper-content {
+  width: 1200px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ----- HEADER ----- */
+
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+  border-bottom: 1px solid;
+  border-color: #e9ebeb;
+  background-color: #ffffff;
+}
+
+.logo {
+  height: 3rem;
+}
+
+/* ----- HERO ----- */
+
+.Hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 1.5rem;
+  background-color: #ffffff;
+}
+
+.restaurantandpicture {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.restaurant_infos {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.restaurant_description {
+  font-size: 1.4rem;
+  line-height: 1.5rem;
+  color: #878b8b;
+}
+
+.hero_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22rem;
+  border-radius: 5px;
+}
+
+/* ----- LUNCHBOX ----- */
+
+.Lunch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.lunch-title {
+  font-weight: bold;
+}
+
+.wrap_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card {
+  width: 44%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 10px 10px 10px #708090;
+}
+
+/* ----- LUNCHBOX TEXT ----- */
+
+.text {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: 1rem;
+  padding: 5px;
+}
+
+.title-item {
+  margin: 0;
+  font-weight: 600;
+}
+
+.description {
+  color: #878b8b;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-item {
+  margin-right: 8px;
+}
+
+.fav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav-item {
+  margin-right: 3px;
+  color: #ff8000;
+}
+
+/* ----- LUNCHBOX IMAGE ----- */
+
+.container-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 8rem;
+  width: 8rem;
+}
+
+.image_item {
+  object-fit: cover;
+  height: 8rem;
+  width: 8rem;
+  border-radius: 5px;
+}
+
+/* ----- BASKET ----- */
+.basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+.basket::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.basket::-webkit-scrollbar:vertical {
+  width: 8px;
+}
+
+.basket::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.basket-card {
+  margin-top: 1rem;
+  width: 30%;
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.basket-card-empty {
+  margin-top: 1rem;
+  width: 30%;
+  background-color: white;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 0px 10px grey;
+}
+
+.basket-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  height: 10rem;
+}
+
+.basket-button-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.basket-button-empty {
+  height: 2.5rem;
+  width: 20rem;
+  border-radius: 5px;
+  margin-bottom: 4rem;
+  background-color: #bac3c3;
+  color: #909e9f;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.basket-empty-span {
+  margin-bottom: auto;
+  color: #8a8e8e;
+}
+
+.basket-button {
+  height: 2.5rem;
+  width: 20rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  background-color: #00cdbd;
   color: white;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.basket-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 20rem;
+  height: auto;
+  margin: 1rem 0;
 }
 
-.App-link {
-  color: #61dafb;
+.blablabla {
+  width: 20rem;
+  margin: 1rem 0;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.meal-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
+}
+
+.meal-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 3.4rem;
+}
+
+.cart-button-plus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #00cebd;
+  width: 20px;
+  margin: 0.2rem 0;
+  cursor: pointer;
+}
+
+.quantity {
+  font-size: 0.8rem;
+  color: #808484;
+}
+
+.cart-button-moins {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #00cebd;
+  width: 20px;
+  margin: 0.2rem 0;
+  cursor: pointer;
+}
+
+.sous-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0rem;
+  font-size: 0.8rem;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  width: 20rem;
+  font-weight: 700;
 }
