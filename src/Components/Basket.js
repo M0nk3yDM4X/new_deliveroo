@@ -3,17 +3,21 @@ import React from "react";
 const Basket = props => {
   const calculateTotal = delivery => {
     let total = 0;
-    for (let i = 0; i < props.product.length; i++) {
-      total = total + props.product[i].price * props.product[i].quantity;
+    for (let i = 0; i < props.basket.length; i++) {
+      total = total + props.basket[i].price * props.basket[i].quantity;
     }
     return delivery ? total + delivery : total;
   };
 
-  console.log(props.product);
-
-  if (props.product.length === 0) {
+  if (props.basket.length === 0) {
     return (
-      <section className="basket-card-empty">
+      <section
+        className={
+          props.showModal === true
+            ? "backet-card-empty-modal"
+            : "basket-card-empty"
+        }
+      >
         <div className="basket-empty">
           <button className="basket-button-empty">Valider mon panier</button>
           <span className="basket-empty-span">Votre panier est vide</span>
@@ -22,13 +26,17 @@ const Basket = props => {
     );
   } else {
     return (
-      <section className="basket-card">
+      <section
+        className={
+          props.showModal === true ? "backet-card-modal" : "basket-card"
+        }
+      >
         <div className="basket">
           <div className="basket-button-container">
             <button className="basket-button">Valider mon panier</button>
           </div>
 
-          {props.product.map(meal => {
+          {props.basket.map(meal => {
             return (
               <div key={meal.id} className="basket-text">
                 <div className="counter">
@@ -45,9 +53,9 @@ const Basket = props => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="#00cebd"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <circle cx="12" cy="12" r="10"></circle>
                       <line x1="8" y1="12" x2="16" y2="12"></line>
@@ -67,9 +75,9 @@ const Basket = props => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="#00cebd"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <circle cx="12" cy="12" r="10"></circle>
                       <line x1="12" y1="8" x2="12" y2="16"></line>

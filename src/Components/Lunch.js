@@ -5,7 +5,13 @@ import Basket from "./Basket.js";
 const Lunch = props => {
   return (
     <div className="wrapper-content">
-      <Basket product={props.products} add={props.add} remove={props.remove} />
+      <Basket
+        basket={props.basket}
+        // products={props.products}
+        add={props.add}
+        remove={props.remove}
+        showModal={props.showModal}
+      />
       <div>
         {Object.keys(props.menu).map((category, index) => {
           const categoryKey = props.menu[category];
@@ -20,7 +26,8 @@ const Lunch = props => {
                 menu={props.menu}
                 category={category}
                 add={props.add}
-                // setShowModal={props.setShowModal}
+                setShowModal={props.setShowModal}
+                // addToModal={props.addToModal}
               />
             </div>
           );

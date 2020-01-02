@@ -217,6 +217,14 @@
   position: sticky;
   top: 0;
 }
+.basket-card-modal {
+  margin-top: 1rem;
+  width: 30%;
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  top: 0;
+}
 
 .basket-card-empty {
   margin-top: 1rem;
@@ -225,6 +233,14 @@
   border-radius: 5px;
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
+  box-shadow: 0px 0px 10px grey;
+}
+.basket-card-empty-modal {
+  margin-top: 1rem;
+  width: 30%;
+  background-color: white;
+  border-radius: 5px;
   top: 0;
   box-shadow: 0px 0px 10px grey;
 }
@@ -240,8 +256,8 @@
 }
 
 .basket-button-container {
-  position: -webkit-sticky;
-  position: sticky;
+  /* position: -webkit-sticky;
+  position: sticky; */
   top: 0;
   background-color: white;
 }
