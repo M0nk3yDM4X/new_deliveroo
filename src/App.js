@@ -12,9 +12,9 @@ const App = () => {
   const [menu, setMenu] = useState({});
   const [restaurant, setRestaurant] = useState({});
   const [products, setProducts] = useState([]);
-  const [basket, setBasket] = useState([]);
+  const [userBasket, setUserBasket] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  // const [showToModal, setShowToModal] = useState([]);
+  const [elementToModal, setElementToModal] = useState();
 
   const addProduct = product => {
     const newProducts = [...products];
@@ -27,7 +27,6 @@ const App = () => {
         break;
       }
     }
-
     if (isFound === false) {
       product.quantity = 1;
       newProducts.push(product);
@@ -41,40 +40,32 @@ const App = () => {
       if (newProducts[i].id === product.id) {
         newProducts[i].quantity = newProducts[i].quantity - 1;
         if (newProducts[i].quantity === 0) {
-          console.log(newProducts[i]);
-          newProducts.splice(newProducts[i], 1);
+          newProducts.splice(i, 1);
+          setUserBasket(newProducts);
         }
         break;
       }
     }
     setProducts(newProducts);
-    setBasket(newProducts);
   };
-
-  // const addToModal = meal => {
-  //   const newModal = [...showToModal];
-  //   newModal.push(meal);
-  //   setShowToModal(newModal);
-  // };
 
   const addToBasket = () => {
     const newBasket = [...products];
-    if (newBasket.length > 0) {
-      setBasket(newBasket);
-      setShowModal(false);
-    }
-  };
-
-  const deleteAll = () => {
-    const newProducts = [...products];
-    if (newProducts.length > 0) {
-      newProducts.splice(0, newProducts.length);
-    }
-    setProducts(newProducts);
+    setUserBasket(newBasket);
     setShowModal(false);
   };
 
-  // console.log(products);
+  const deleteAll = id => {
+    const newProducts = [...products];
+    for (let i = 0; i < newProducts.length; i++) {
+      if (newProducts[i].id === id) {
+        newProducts.splice(i, 1);
+      }
+    }
+    setProducts(newProducts);
+    setUserBasket(newProducts);
+    setShowModal(false);
+  };
 
   const fetchData = async () => {
     try {
@@ -91,18 +82,17 @@ const App = () => {
     fetchData();
   }, []);
 
+  // console.log(products);
   return (
     <div className="App">
       <ModalMeal
         showModal={showModal}
         setShowModal={setShowModal}
-        // showToModal={showToModal}
-        products={products}
-        setProducts={setProducts}
+        element={elementToModal}
         add={addProduct}
         addToBasket={addToBasket}
         del={removeProduct}
-        delAll={deleteAll}
+        deleteAll={deleteAll}
       />
       <Header />
       <Hero
@@ -122,10 +112,10 @@ const App = () => {
               remove={removeProduct}
               setProducts={setProducts}
               products={products}
-              basket={basket}
               setShowModal={setShowModal}
               showModal={showModal}
-              // addToModal={addToModal}
+              setElementToModal={setElementToModal}
+              userBasket={userBasket}
             />
           </>
         )}

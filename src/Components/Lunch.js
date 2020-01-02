@@ -6,8 +6,8 @@ const Lunch = props => {
   return (
     <div className="wrapper-content">
       <Basket
-        basket={props.basket}
-        // products={props.products}
+        userBasket={props.userBasket}
+        products={props.products}
         add={props.add}
         remove={props.remove}
         showModal={props.showModal}
@@ -27,7 +27,7 @@ const Lunch = props => {
                 category={category}
                 add={props.add}
                 setShowModal={props.setShowModal}
-                // addToModal={props.addToModal}
+                setElementToModal={props.setElementToModal}
               />
             </div>
           );

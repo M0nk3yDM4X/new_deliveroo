@@ -3,13 +3,13 @@ import React from "react";
 const Basket = props => {
   const calculateTotal = delivery => {
     let total = 0;
-    for (let i = 0; i < props.basket.length; i++) {
-      total = total + props.basket[i].price * props.basket[i].quantity;
+    for (let i = 0; i < props.userBasket.length; i++) {
+      total = total + props.userBasket[i].price * props.userBasket[i].quantity;
     }
     return delivery ? total + delivery : total;
   };
 
-  if (props.basket.length === 0) {
+  if (props.userBasket.length === 0) {
     return (
       <section
         className={
@@ -35,8 +35,7 @@ const Basket = props => {
           <div className="basket-button-container">
             <button className="basket-button">Valider mon panier</button>
           </div>
-
-          {props.basket.map(meal => {
+          {props.userBasket.map(meal => {
             return (
               <div key={meal.id} className="basket-text">
                 <div className="counter">

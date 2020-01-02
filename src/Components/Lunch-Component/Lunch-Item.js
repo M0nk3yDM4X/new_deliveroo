@@ -13,7 +13,7 @@ const LunchItem = props => {
             className="card"
             onClick={() => {
               props.add(meal);
-              // props.addToModal(meal);
+              props.setElementToModal(meal);
               props.setShowModal(true);
             }}
           >
