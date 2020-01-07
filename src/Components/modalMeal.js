@@ -1,4 +1,9 @@
 import React from "react";
+import {
+  Close,
+  AddCircleOutline,
+  RemoveCircleOutline
+} from "@material-ui/icons";
 
 const modalMeal = ({
   add,
@@ -18,105 +23,58 @@ const modalMeal = ({
   return (
     <>
       {showModal === true && (
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            top: "0",
-            left: "0",
-            position: "fixed",
-            background: "rgba(0, 0, 0, 0.6)"
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "white",
-              height: "40%",
-              width: "40%",
-              position: "fixed",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)"
-            }}
-          >
-            <div
-              key={element.id}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                backgroundColor: "red",
-                width: "100%",
-                height: "100%",
-                padding: "5px"
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  backgroundColor: "blue",
-                  width: "100%"
+        <div className="backgroundModal">
+          <div className="modalCard">
+            <div className="modalHeader">
+              <span className="modalText">{element.title}</span>
+              <Close
+                className="modalClose"
+                onClick={() => {
+                  deleteAll(element.id);
+                  setShowModal(false);
                 }}
-              >
-                <span>{element.title}</span>
-
-                <span
-                  onClick={() => {
-                    deleteAll(element.id);
-                    setShowModal(false);
-                  }}
-                >
-                  X
-                </span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  backgroundColor: "yellow",
-                  justifyContent: "center"
-                }}
-              >
-                <span
+              />
+            </div>
+            <div className="modalMainBlock">
+              <div className="modalQuantity">
+                <RemoveCircleOutline
+                  className="moreOrLess"
                   onClick={() => {
                     if (element.quantity > 1) {
                       del(element);
                     }
                   }}
-                >
-                  -
-                </span>
-                <span>{element.quantity}</span>
-                <span
+                />
+
+                <span className="modalText">{element.quantity}</span>
+                <AddCircleOutline
+                  className="moreOrLess"
                   onClick={() => {
                     add(element);
                   }}
-                >
-                  +
-                </span>
+                />
               </div>
-              <div>
-                <button
+              <div className="modalFooter">
+                <div
+                  className="footerCancelButton"
                   onClick={() => {
                     deleteAll(element.id);
                     setShowModal(false);
                   }}
                 >
-                  Annuler
-                </button>
-                <button
+                  <span className="footerCancelText">Annuler</span>
+                </div>
+                <div
+                  className="footerTotalButton"
                   onClick={() => {
                     addToBasket();
                   }}
                 >
-                  <span>Total </span>{" "}
-                  <span> {calculateTotal().toFixed(2)} </span>
-                </button>
+                  <span className="footerTotalText">Total </span>
+                  <span className="footerTotalText">
+                    {calculateTotal().toFixed(2)} €
+                  </span>
+                </div>
               </div>
             </div>
           </div>

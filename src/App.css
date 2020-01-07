@@ -76,6 +76,114 @@
   border-radius: 5px;
 }
 
+/* ----- HERO ----- */
+
+.backgroundModal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modalCard {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+  background-color: white;
+  height: auto;
+  width: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.modalClose {
+  color: #00ccbc;
+}
+
+.modalText {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modalMainBlock {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.modalQuantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.moreOrLess {
+  margin: 10px 50px;
+  color: #00ccbc;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.footerCancelButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  padding: 12px;
+  border: 1px solid #00ccbc;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.footerCancelText {
+  color: #00ccbc;
+  font-weight: 300;
+}
+
+.footerTotalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  padding: 12px;
+  border: 1px solid #00ccbc;
+  background-color: #00ccbc;
+  margin-left: 5px;
+  border-radius: 2px;
+}
+
+.footerTotalText {
+  color: white;
+  margin: 0 5px;
+  font-weight: 600;
+}
+
 /* ----- LUNCHBOX ----- */
 
 .Lunch {
